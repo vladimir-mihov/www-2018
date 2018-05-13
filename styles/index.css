@@ -1,0 +1,17 @@
+.images {
+	width: 1000px;
+	margin: 50px auto 0;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.image {
+	display: inline-block;
+	border: 1px solid #dadada;
+	border-radius: 5px;
+	background-color: #dadada;
+	margin: 10px;
+	width: 175px;
+	height: 200px;
+	object-fit: cover;
+}

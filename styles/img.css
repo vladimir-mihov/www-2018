@@ -1,0 +1,77 @@
+.content {
+	display: block;
+	width: 1000px;
+	margin: 7vh auto;
+}
+
+.main-image {
+	display: block;
+	max-width: 45vw;
+	max-height: 60vh;
+	width: auto;
+	height: auto;
+	margin: 0 auto;
+}
+
+.buttons {
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	height: 50px;
+	width: 100%;
+	margin: 50px 0 0;
+}
+
+.button {
+	display: block;
+	height: 100%;
+	margin: auto;
+}
+
+.button img {
+	max-height: 100%;
+	max-width: 100%;
+	height: auto;
+}
+
+#commentForm {
+	margin: 20px 0 20px 25px;
+}
+
+/* Local reset */
+#commentForm input {
+	border: none;
+	background: none;
+	outline: none;
+}
+
+#commentForm input[type=text] {
+	border-bottom: 1px solid #383838;
+	font-size: 1.2em;
+	line-height: 1.2em;
+	color: #fff;
+	width: 50%;
+}
+
+#commentForm input[type=submit] {
+	font-weight: bold;
+	font-size: 1.3em;
+	line-height: 1.3em;
+	color: #a2a2a2;
+}
+
+#commentForm input[type=submit]:hover {
+	color: #45679c;
+}
+
+.comments ul {
+	width: 80%;
+	margin-left: 50px;
+}
+
+.comments li {
+	padding: 10px;
+    margin: 10px;
+	background-color: #555;
+	border-radius: 5px;
+	color: #fff;
+}
