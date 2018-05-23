@@ -37,7 +37,7 @@
 			<ul>
 				<li><a href='#' class='profile-link'>Change password</a></li>
 				<li><a href='#' class='profile-link'>Change profile image</a></li>
-				<li><a href='#' class='profile-link'>View my albums</a></li>
+				<li><a href='my-images' class='profile-link'>View my albums</a></li>
 			</ul>
 		</section>
 	</main>
