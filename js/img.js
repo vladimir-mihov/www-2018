@@ -1,24 +1,23 @@
 ( function() {
 
 function vote(vote) {
-	var xhr = new XMLHttpRequest();
+	xhr = new XMLHttpRequest();
 	var form = new FormData();
-	xhr.open( 'post', window.location.origin + '/vote', true );
-	form.append( 'imageid', imageid )
+	xhr.open( 'post', window.location.origin + '/vote' );
+	form.append( 'imageid', imageid );
 	form.append( 'uid', uid );
 	form.append( 'vote', vote );
 	xhr.send(form);
 }
 
 function votedGood() {
-	document.getElementById('thumbsUp').style.background = '#4d982f';
-	document.getElementById('thumbsDown').style.background = 'none';
+	document.getElementById('thumbsUp').firstElementChild.style.background = '#4d982f';
+	document.getElementById('thumbsDown').firstElementChild.style.background = 'none';
 }
 
 function votedBad() {
-	document.getElementById('thumbsDown').style.background = '#9e2424';
-	document.getElementById('thumbsUp').style.background = 'none';
-
+	document.getElementById('thumbsDown').firstElementChild.style.background = '#9e2424';
+	document.getElementById('thumbsUp').firstElementChild.style.background = 'none';
 }
 
 function thumbsUp() {
