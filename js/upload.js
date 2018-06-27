@@ -28,7 +28,7 @@ function captureFile(e) {
 
 function uploadFile(e) {
 	noDefaultStopBubble(e);
-	var uploadFile = file ? file : e.target.file.files[0] ;
+	var uploadFile = file ? file : document.forms[1].file.files[0] ;
 	var xhr = new XMLHttpRequest();
 	var form_data = new FormData();
 	xhr.onreadystatechange = function() {
@@ -43,7 +43,7 @@ function uploadFile(e) {
 	xhr.open('post','upload',true);
 
 	form_data.append( 'file', uploadFile );
-	form_data.append( 'tags', document.forms[0].tags.value );
+	form_data.append( 'tags', document.forms[1].tags.value );
 
 	xhr.send(form_data);
 	return false;
