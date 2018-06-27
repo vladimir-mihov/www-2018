@@ -38,14 +38,6 @@ function captureAndUpload(e) {
 	} else {
 		form_data.append( 'file', files[0] );
 	}
-	/*for( var i = 0 ; i < files.length ; ++i ) {
-		var filename = files[i].name.split('.');
-		if( filename[1] != 'png' && filename[1] != 'jpg' ) {
-			alert( 'Supported formats are .png and .jpg' );
-			return;
-		}
-		form_data.append( 'file' + i, files[i] );
-	}*/
 	xhr.send(form_data);
 }
 
