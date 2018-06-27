@@ -80,8 +80,8 @@
 			<form method='post' class='buttons' id='controls'>
 				<input type='hidden' name='action' value='controls'>
 				<input type='hidden' name='pressedButton'>
-				<button id='thumbsUp' class='button'><img src='//<?= $srvr ?>/images/thumbs-up.png'></button>
-				<button id='thumbsDown' class='button'><img src='//<?= $srvr ?>/images/thumbs-down.png'></button>
+				<button id='thumbsUp' class='button'><img src='//<?= $srvr ?>/images/thumbs-up<?php if( $hasVoted && $vote['vote'] ): ?>-green<?php endif; ?>.png'></button>
+				<button id='thumbsDown' class='button'><img src='//<?= $srvr ?>/images/thumbs-down<?php if( $hasVoted && !$vote['vote'] ): ?>-red<?php endif; ?>.png'></button>
 				<?php if( $_SESSION['uid'] == $imageOwnerID || $_SESSION['privilege'] ): ?>
 				<button id='removeDummy' class='button'><img src='//<?= $srvr ?>/images/delete.png'></button>
 				<?php endif; ?>
@@ -96,7 +96,7 @@
 			<?php endif; ?>
 			<section id='tags'>
 			<?php foreach( $imageTags as $tag ): ?>
-				<span class='tag'>#<?= $tag ?></span>
+				<span class='tag'><?= $tag ?></span>
 			<?php endforeach; ?>
 			</section>
 			<form id='commentForm' method='post' name='addComment'>

@@ -4,25 +4,25 @@ function validate() {
 
 	switch( this.id ) {
 		case 'user':
-			value = document.forms[0].user.value;
+			value = document.forms[1].user.value;
 			valuePattern = /^[a-zA-Z_][a-zA-Z0-9_]{5,63}$/;
 			break;
 		case 'pwd':
-			value = document.forms[0].pwd.value;
+			value = document.forms[1].pwd.value;
 			valuePattern = /^.{6,64}$/;
 			break;
 		case 'cpwd':
-			value = document.forms[0].cpwd.value;
+			value = document.forms[1].cpwd.value;
 			valuePattern = /^.{6,64}$/;
 			break;
 		case 'email':
-			value = document.forms[0].email.value;
+			value = document.forms[1].email.value;
 			valuePattern = /(?=^.{0,64}$)^\w+@[a-zA-Z]+\.[a-zA-Z]+$/;
 			break;
 	}
-	
+
 	if( !valuePattern.test(value) && value.length > 0 ) {
-		
+
 		switch( this.id ) {
 			case 'user':
 				if( /^[0-9].*$/.test(value) )
@@ -45,7 +45,7 @@ function validate() {
 			case 'email':
 				errMsg = 'Invalid e-mail.';
 		}
-		
+
 		this.classList.add( 'invalid' );
 		this.classList.remove( 'valid' );
 		var coordinates = this.getBoundingClientRect();
@@ -69,8 +69,8 @@ function removeErrorBlock() {
 }
 
 function validatePasswords() {
-	var x = document.forms[0].pwd.value;
-	var y = document.forms[0].cpwd.value;
+	var x = document.forms[1].pwd.value;
+	var y = document.forms[1].cpwd.value;
 	var err = document.getElementById('error-block');
 	var cpwdPosition = this.getBoundingClientRect();
 	if( y.length == 0 ) {

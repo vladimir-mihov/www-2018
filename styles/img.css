@@ -30,6 +30,7 @@
 .button img {
 	max-height: 100%;
 	height: auto;
+	transition: filter 0.3s;
 }
 
 #commentForm {
@@ -132,14 +133,22 @@
 	top: 15vh;
 	left: 10vw;
 	align-items: center;
-	border: 1px solid white;
-	border-radius: 10px;
 }
 
 .tag {
 	font-style: italic;
 	font-size: 1.1em;
 	font-weight: bold;
-	color: #5f85c3;
+	color: #c5d6f1;
 	margin: 10px;
+	padding: 10px 20px;
+	border-radius: 500px;
+	background: #3a3b3e;
+	cursor: pointer;
+	transition: background 0.3s, color 0.3s;
+}
+
+.tag:hover {
+	background: #2e2f31;
+	color: #fff;
 }

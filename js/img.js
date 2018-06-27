@@ -7,15 +7,15 @@ var thumbsUp = document.getElementById('thumbsUp').firstElementChild;
 var thumbsDown = document.getElementById('thumbsDown').firstElementChild;
 
 function voteGood() {
-	thumbsUp.style.background = '#4d982f';
-	thumbsDown.style.background = 'none';
-	document.forms[0].pressedButton.value = 1;
+	thumbsUp.src = window.location.origin + '/images/thumbs-up-green.png';
+	thumbsDown.src = window.location.origin + '/images/thumbs-down.png';
+	document.forms[1].pressedButton.value = 1;
 }
 
 function voteBad() {
-	thumbsDown.style.background = '#9e2424';
-	thumbsUp.style.background = 'none';
-	document.forms[0].pressedButton.value = 0;
+	thumbsUp.src = window.location.origin + '/images/thumbs-up.png';
+	thumbsDown.src = window.location.origin + '/images/thumbs-down-red.png';
+	document.forms[1].pressedButton.value = 0;
 }
 
 var removeForm = document.getElementById('removeForm');
@@ -37,9 +37,11 @@ function hideRemoveForm() {
 	setTimeout( function() { removeForm.style.visibility = 'hidden'; curtain.style.visibility = 'hidden'; }, 300 );
 }
 
-if( voted !== undefined ) {
-	voted ? voteGood() : voteBad()
-}
+Array.from( document.getElementsByClassName('tag') ).forEach( function(tag) {
+	tag.addEventListener( 'click', function() {
+		window.location.href = window.location.origin + '/find/' + tag.innerText;
+	})
+});
 
 document.getElementById('thumbsUp').addEventListener( 'click', voteGood );
 document.getElementById('thumbsDown').addEventListener( 'click', voteBad );
