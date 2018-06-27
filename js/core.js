@@ -29,7 +29,14 @@ function redirect(to) {
 	window.location.href = window.location.origin + '/' + to;
 }
 
-document.getElementById('separator').style.gridColumnStart = document.querySelector('nav').firstElementChild.children.length - 2;
+function search(e) {
+	e.preventDefault();
+	redirect( 'find/' + e.target.query.value );
+	return false;
+}
+
+document.getElementById('search').style.gridColumnStart = document.querySelector('nav').firstElementChild.children.length - 2;
+document.getElementById('search').addEventListener( 'submit', search );
 
 document.getElementById('userIcon').addEventListener( 'click', function() {alert('Holla!') } );
 

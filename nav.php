@@ -4,7 +4,9 @@
 		<?php if( $_SESSION['uid'] ): ?>
 		<li><a href='//<?= $srvr ?>/upload'>Upload</a></li>
 		<?php endif; ?>
-		<li id='separator'></li>
+		<form id='search'>
+			<input type='search' name='query' spellcheck='false' autocomplete='off' placeholder='Search by tags'>
+		</form>
 		<?php if( !$_SESSION['uid'] ): ?>
 		<li><a href='//<?= $srvr ?>/login'>Login</a></li>
 		<li><a href='//<?= $srvr ?>/sign-up'>Sign-up</a></li>

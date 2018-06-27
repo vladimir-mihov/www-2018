@@ -1,8 +1,6 @@
 <?php
-	print_r( $_POST );
+	$x = array( 1, 2, 3 );
+	$y = array( 4, 5, 6, 3 );
+	$z = array_intersect($x,$y);
+	if( !empty($z) ) echo 132;
 ?>
-
-<form method='post' name='testform'>
-	<button name='name'></button>
-	<button name='name2'></button>
-</form>

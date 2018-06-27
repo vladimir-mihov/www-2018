@@ -17,9 +17,18 @@ function restoreArea(e) {
 	document.getElementById('drop-area').style.border = '1px solid #2e2f31';
 }
 
-function captureAndUpload(e) {
+var file = null;
+
+function captureFile(e) {
+	file = e.dataTransfer.files[0];
+	document.getElementById('drop-text').innerText = file.name;
 	restoreArea(e);
-	var files = e.dataTransfer ? e.dataTransfer.files : this.file.files ;
+	showTags();
+}
+
+function uploadFile(e) {
+	noDefaultStopBubble(e);
+	var uploadFile = file ? file : e.target.file.files[0] ;
 	var xhr = new XMLHttpRequest();
 	var form_data = new FormData();
 	xhr.onreadystatechange = function() {
@@ -32,26 +41,30 @@ function captureAndUpload(e) {
 		}
 	}
 	xhr.open('post','upload',true);
-	if( files.length !== 1 ) {
-		alert( 'Only 1 file pre upload supported for now.' );
-		return;
-	} else {
-		form_data.append( 'file', files[0] );
-	}
+
+	form_data.append( 'file', uploadFile );
+	form_data.append( 'tags', document.forms[0].tags.value );
+
 	xhr.send(form_data);
+	return false;
 }
 
-document.getElementById('file-button').addEventListener( 'click', function() { document.getElementById('file').click(); } );
+function showTags() {
+	document.getElementById('tags').hidden = false;
+}
 
 document.getElementById('drop-area').addEventListener( 'dragenter', clearArea );
 document.getElementById('drop-area').addEventListener( 'dragleave', restoreArea );
 document.getElementById('drop-area').addEventListener( 'dragover', function(e) { noDefaultStopBubble(e); } );
-document.addEventListener( 'drop', captureAndUpload );
+document.addEventListener( 'drop', captureFile );
 
 document.getElementById('drop-text').addEventListener( 'dragenter', clearArea );
 document.getElementById('drop-text').addEventListener( 'dragleave', restoreArea );
 document.getElementById('drop-text').addEventListener( 'dragover', function(e) { noDefaultStopBubble(e); } );
 
-document.getElementById('upload-form').addEventListener( 'submit', captureAndUpload );
+document.getElementById('file').addEventListener( 'change', showTags );
+document.getElementById('file-button').addEventListener( 'click', function() { document.getElementById('file').click() } );
+
+document.getElementById('upload-form').addEventListener( 'submit', uploadFile );
 
 })();

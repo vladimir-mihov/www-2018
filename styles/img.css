@@ -24,6 +24,7 @@
 	display: block;
 	height: 100%;
 	margin: auto;
+	cursor: pointer;
 }
 
 .button img {
@@ -123,4 +124,22 @@
 	background-color: #000;
 	opacity: 0;
 	transition: opacity 0.3s;
+}
+
+#tags {
+	display: grid;
+	position: absolute;
+	top: 15vh;
+	left: 10vw;
+	align-items: center;
+	border: 1px solid white;
+	border-radius: 10px;
+}
+
+.tag {
+	font-style: italic;
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #5f85c3;
+	margin: 10px;
 }

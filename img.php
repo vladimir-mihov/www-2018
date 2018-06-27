@@ -9,12 +9,13 @@
 
 	$db = new database('images','root','');
 
-	$image = $db->prepare( 'SELECT imageID, ownerID FROM images WHERE name=:imagename' );
+	$image = $db->prepare( 'SELECT imageID, ownerID, tags FROM images WHERE name=:imagename' );
 	$image->bindParam( ':imagename', $_GET['image'] );
 	$image->execute();
 	$imageData = $image->fetch();
 	$imageID = $imageData['imageID'];
 	$imageOwnerID = $imageData['ownerID'];
+	$imageTags = explode( ',', $imageData['tags'] );
 
 	if( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
 		if( $_POST['action'] === 'comment' ) {
@@ -64,8 +65,6 @@
 		<link href='//<?= $srvr ?>/styles/img.css' rel='stylesheet'>
 		<title>Imgur copy</title>
 		<script type='text/javascript'>
-			var uid = <?php echo $_SESSION['uid'] ?>;
-			var imageid = <?php echo $imageID ?>;
 			<?php if( $hasVoted ): ?>
 			var voted = <?php echo $vote['vote'] ?>;
 			<?php else: ?>
@@ -95,6 +94,11 @@
 			</form>
 			<div id='curtain'></div>
 			<?php endif; ?>
+			<section id='tags'>
+			<?php foreach( $imageTags as $tag ): ?>
+				<span class='tag'>#<?= $tag ?></span>
+			<?php endforeach; ?>
+			</section>
 			<form id='commentForm' method='post' name='addComment'>
 				<input type='hidden' name='action' value='comment'>
 				<input type='text' name='comment' autocomplete='off'>
