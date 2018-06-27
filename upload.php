@@ -42,7 +42,7 @@
 		<form enctype='multipart/form-data' method='post' name='upload' id='upload-form'>
 			<div id='drop-container'>
 				<div id='drop-area'>
-					<span id='drop-text'>Drop files here</span>
+					<span id='drop-text'>Drop file here</span>
 				</div>
 			</div>
 			<input type='hidden' name='MAX_FILE_SIZE' value='30000'>
