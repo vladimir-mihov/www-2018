@@ -4,20 +4,20 @@
 		require_once( 'database.php' );
 		$db = new database( 'images', 'root', '' );
 		$err = '';
-		
-		$getUserData = $db->prepare( "SELECT * FROM users WHERE user=:user" );
+
+		$getUserData = $db->prepare( "SELECT * FROM users WHERE uname=:user" );
 		$getUserData->bindParam( ':user', $_POST['user'] );
 		$getUserData->execute();
 		$userData = $getUserData->fetch( PDO::FETCH_ASSOC );
-		
+
 		if( !empty($userData) and password_verify( $_POST['pwd'], $userData['pwd'] ) ) {
 			$_SESSION['uid'] = $userData['userID'];
+			$_SESSION['uname'] = $userData['uname'];
+			$_SESSION['privilege'] = $userData['privilege'];
 			header( "Location: http://$_SERVER[SERVER_NAME]", true, 302 );
 			die();
 		} else {
-			$err = 'Wrong username/password combination!';
-			echo $err;
-			die();
+			$err = 'Wrong username or password!';
 		}
 	}
 ?>
@@ -34,7 +34,10 @@
 		<?php require_once( 'nav.php' ); ?>
 		<section class='form-section'>
 			<form method='post' name='login' class='form'>
-				<input type='text' name='user' autocomplete='off' spellcheck='false' id='user' placeholder='Username'><!-- class = flash-red if $err is set -->
+				<?php if( !empty($err) ): ?>
+				<p class='login-error'><?= $err ?></p>
+				<?php endif;?>
+				<input type='text' name='user' autocomplete='off' spellcheck='false' id='user' placeholder='Username'>
 				<input type='password' name='pwd' autocomplete='off' spellcheck='false' id='pwd' placeholder='Password'>
 				<input type='submit' value='Login'>
 				<span id='acc'>Don't have an account? <a href='sign-up' class='bold'>Sign-up.</a></span>

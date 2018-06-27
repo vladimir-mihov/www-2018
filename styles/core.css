@@ -2,10 +2,14 @@
 	box-sizing: content-box;
 }
 
+html, body {
+	overflow-x: hidden;
+}
+
 body {
 	background-color: #141518;
-	font-family: sans-serif;
 	min-height: 100vh;
+	font-family: Roboto,-apple-system,BlinkMacSystemFont,"Helvetica Neue","Segoe UI","Oxygen","Ubuntu","Cantarell","Open Sans",sans-serif;
 }
 
 nav {
@@ -25,7 +29,6 @@ nav li {
 	max-height: 45px;
 	align-self: center;
 	grid-row: 1;
-	cursor: pointer;
 }
 
 #separator {
@@ -37,6 +40,7 @@ nav img {
 	height: auto;
 	width: auto;
 	max-height: inherit;
+	cursor: pointer;
 }
 
 .menu {
@@ -45,6 +49,8 @@ nav img {
 	position: absolute;
 	font-size: 1.3em;
 	text-align: center;
+	opacity: 0;
+	transition: opacity 0.3s;
 }
 
 .menu ul {
@@ -53,10 +59,16 @@ nav img {
 }
 
 .menu li {
-	background-color: #dadada;
+	background-color: #3b5382d9;
+	color: white;
 	border-bottom: 1px solid #c3c3c3;
 	padding: 10px;
 	cursor: pointer;
+	transition: background 0.3s;
+}
+
+.menu li:hover {
+	background-color: #4c5f82;
 }
 
 .menu li:first-child {
@@ -65,10 +77,6 @@ nav img {
 
 .menu li:last-child {
 	border-radius: 0 0 5px 5px;
-}
-
-.menu li:hover {
-	background-color: #00c3c3;
 }
 
 .menu li:last-child {
@@ -82,12 +90,10 @@ nav img {
 }
 
 .menuIcon {
-	-webkit-filter: invert(1);
-	filter: invert(1);
+	transition: filter 0.3s;
 }
 
 .menuIcon:hover {
-	-webkit-filter: invert(0.5);
 	filter: invert(0.5);
 }
 
@@ -99,16 +105,60 @@ nav li:nth-child(n+2) a{
 	margin: auto 0;
     text-decoration: none;
 	border-radius: 5px;
+	transition: background-color 0.2s;
 }
 
 nav li:nth-child(n+2) a:hover{
 	background-color: #1bb76e;
 }
 
+#userIcon {
+	border-radius: 50px;
+	transition: background 0.3s;
+}
+
+#userIcon:hover {
+	background: #394d61;
+}
+
 #logo {
 	display: block;
 	height: 45px;
 	width: auto;
+}
+
+.tooltip + .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #394d61;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+	opacity: 0;
+}
+
+.tooltip-bottom {
+	top: 50px;
+	margin-left: -75px;
+}
+
+.tooltip + .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;  /* At the top of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #394d61 transparent;
+}
+
+.tooltip:hover + .tooltiptext {
+    visibility: visible;
+	opacity: 1;
 }
 
 ::selection {

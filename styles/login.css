@@ -3,3 +3,9 @@
 input#pwd {
 	margin: 0 auto 0;
 }
+
+.login-error {
+	text-align: center;
+	color: white;
+	margin-bottom: 15px;
+}

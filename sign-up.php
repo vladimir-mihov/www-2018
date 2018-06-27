@@ -20,8 +20,8 @@
 				header( 'Location: sign-up' );
 				die();
 			}
-			
-			$insert = $db->prepare( 'INSERT INTO users(user, pwd, email) VALUES (:user, :pwd, :email)' );
+
+			$insert = $db->prepare( 'INSERT INTO users(uname, pwd, email) VALUES (:user, :pwd, :email)' );
 			$pwdHash = password_hash( $_POST['pwd'], PASSWORD_DEFAULT );
 			$insert->bindParam( ':user', $_POST['user'] );
 			$insert->bindParam( ':pwd', $pwdHash );

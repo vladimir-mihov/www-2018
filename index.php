@@ -1,9 +1,9 @@
 <?php
 	require_once('session.php');
 	require_once('database.php');
-	
+
 	$db = new database( 'images', 'root', '' );
-	$result = $db->query( 'SELECT * FROM img' );
+	$result = $db->query( 'SELECT * FROM images' );
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@
 		<?php require_once('nav.php'); ?>
 		<main class='images'>
 		<?php while( $row = $result->fetch(PDO::FETCH_ASSOC) ): ?>
-			<a href='i/<?= $row['imagelink'] ?>'><img src='uploads/<?= $row['imagelink'] ?>' class='image'/></a>
+			<a href='i/<?= $row['name'] ?>'><img src='uploads/<?= $row['name'] ?>' class='image'/></a>
 		<?php endwhile; ?>
 		</main>
 	</body>

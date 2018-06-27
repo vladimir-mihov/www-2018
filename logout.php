@@ -1,6 +1,6 @@
 <?php
 	require_once('session.php');
-	$_SESSION['uid'] = 0;
+	session_destroy();
 	header( 'Location: //' . $srvr, true, 302 );
 	die();
 ?>

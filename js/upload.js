@@ -8,26 +8,26 @@ function noDefaultStopBubble(e) {
 function clearArea(e) {
 	noDefaultStopBubble(e);
 	document.getElementById('drop-text').style.visibility = 'hidden';
-	document.getElementById('drop-area').style.border = '10px dashed #333333';
+	document.getElementById('drop-area').style.border = '1px dashed #fff';
 }
 
 function restoreArea(e) {
 	noDefaultStopBubble(e);
 	document.getElementById('drop-text').style.visibility = 'visible';
-	document.getElementById('drop-area').style.border = '10px dashed #c3c3c3';
+	document.getElementById('drop-area').style.border = '1px solid #2e2f31';
 }
 
 function captureAndUpload(e) {
 	restoreArea(e);
 	var files = e.dataTransfer ? e.dataTransfer.files : this.file.files ;
-	xhr = new XMLHttpRequest();
+	var xhr = new XMLHttpRequest();
 	var form_data = new FormData();
 	xhr.onreadystatechange = function() {
 		if( this.readyState == 4 ) {
 			if( this.status == 200 ) {
 				window.location.replace( 'http://localhost/i/' + xhr.response );
 			} else {
-				//Idk
+				console.log( xhr.response );
 			}
 		}
 	}
