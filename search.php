@@ -42,6 +42,8 @@
         <main class='images'>
 		<?php if( empty($foundImages) ): ?>
 			<p class='header'>No images found</p>
+		<?php else: ?>
+			<p class='header'>Results for <?= implode( ' and ', $searchTags ) ?></p>
 		<?php endif; ?>
         <?php foreach( $foundImages as $image ): ?>
             <a href='//<?= $srvr ?>/i/<?= $image ?>'><img src='//<?= $srvr ?>/uploads/<?= $image ?>' class='image'/></a>
