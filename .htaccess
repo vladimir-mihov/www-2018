@@ -1,0 +1,9 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+RewriteRule ^i/(.+)$ img.php?image=$1 [l]
+
+RewriteRule ^find/(.+)$ search.php?query=$1
