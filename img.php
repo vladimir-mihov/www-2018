@@ -7,7 +7,7 @@
 	}
 	require_once('database.php');
 
-	$db = new database('images','root','');
+	$db = new database();
 
 	$image = $db->prepare( 'SELECT imageID, ownerID, tags FROM images WHERE name=:imagename' );
 	$image->bindParam( ':imagename', $_GET['image'] );

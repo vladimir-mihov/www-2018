@@ -10,6 +10,6 @@
 		<link href='//<?= $srvr ?>/styles/core.css' rel='stylesheet'>
 	</head>
 	<body>
-
+		<p class='header'>404</p>
 	</body>
 </html>

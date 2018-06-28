@@ -2,7 +2,7 @@
 	require_once('session.php');
 	require_once('database.php');
 
-	$db = new database( 'images', 'root', '' );
+	$db = new database();
 	$getMyImages = $db->query( "SELECT * FROM images WHERE ownerID=$_SESSION[uid]" );
 	$myImages = $getMyImages->fetchAll( PDO::FETCH_ASSOC );
 	$getUsername = $db->query( "SELECT * FROM users WHERE userID=$_SESSION[uid]" );

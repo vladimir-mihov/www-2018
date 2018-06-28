@@ -2,8 +2,8 @@
 	class database {
 		private $conn;
 
-		public function __construct( $dbName, $user, $pass ) {
-			$this->conn = new PDO( 'mysql:host=localhost;dbname=' . $dbName, $user, $pass );
+		public function __construct() {
+			$this->conn = new PDO( 'mysql:host=localhost;dbname=' . 'images', 'root', '' );
 		}
 
 		public function __destruct() {

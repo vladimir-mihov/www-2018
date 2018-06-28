@@ -6,7 +6,7 @@
 		$emailRegex = '/(?=^.{0,64}$)^\w+@[a-zA-Z]+\.[a-zA-Z]+$/';
 		$err = false;
 		require_once( 'database.php' );
-		$db = new database( 'images', 'root', '' );
+		$db = new database();
 		if( !preg_match($userRegex, $_POST['user']) ||
 			!preg_match($pwdRegex, $_POST['pwd']) ||
 			!preg_match($pwdRegex, $_POST['cpwd']) ||

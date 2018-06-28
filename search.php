@@ -3,7 +3,7 @@
     require_once('database.php');
 
     if( !empty($_GET['query']) ) {
-        $db = new database('images','root','');
+        $db = new database();
         $getImageData = $db->query( "SELECT name, tags FROM images" );
         $rawData = $getImageData->fetchAll( PDO::FETCH_ASSOC );
 

@@ -12,7 +12,7 @@
 		}
 		$imageFileType = strtolower( pathinfo( $uploadFile,PATHINFO_EXTENSION ) );
 		if( ($imageFileType === 'png' || $imageFileType === 'jpg' || $imageFileType === 'jpeg') and move_uploaded_file($_FILES['file']['tmp_name'], $uploadFile) ) {
-			$db = new database('images','root','');
+			$db = new database();
 			$insertImage = $db->prepare( "INSERT INTO images(name,ownerID,tags) VALUES(:imageName,:uid,:tags)" );
 			$uid = $_SESSION['uid'];
 			$insertImage->bindParam( ':imageName', $fileName );

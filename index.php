@@ -2,7 +2,7 @@
 	require_once('session.php');
 	require_once('database.php');
 
-	$db = new database( 'images', 'root', '' );
+	$db = new database();
 	$images = $db->query( 'SELECT name FROM images' )->fetchAll( PDO::FETCH_ASSOC );
 ?>
 

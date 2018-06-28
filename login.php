@@ -2,7 +2,7 @@
 	require_once('session.php');
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 		require_once( 'database.php' );
-		$db = new database( 'images', 'root', '' );
+		$db = new database();
 		$err = '';
 
 		$getUserData = $db->prepare( "SELECT * FROM users WHERE uname=:user" );
