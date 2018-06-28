@@ -71,8 +71,9 @@
 .comments li {
 	padding: 10px;
     margin: 10px;
-	background-color: #555;
-	border-radius: 5px;
+	background-color: #2d2f40;
+	border-radius: 15px;
+	border: 1px solid #1b4a48;
 	color: #fff;
 }
 
@@ -145,6 +146,7 @@
 	border-radius: 500px;
 	background: #3a3b3e;
 	cursor: pointer;
+	text-align: center;
 	transition: background 0.3s, color 0.3s;
 }
 
