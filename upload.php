@@ -35,7 +35,6 @@
 		<link href='styles/reset.css' rel='stylesheet'>
 		<link href='styles/core.css' rel='stylesheet'>
 		<link href='styles/upload.css' rel='stylesheet'>
-		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 		<title>Imgur copy</title>
 	</head>
 	<body>

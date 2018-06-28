@@ -56,6 +56,8 @@ function showTags() {
 document.getElementById('drop-area').addEventListener( 'dragenter', clearArea );
 document.getElementById('drop-area').addEventListener( 'dragleave', restoreArea );
 document.getElementById('drop-area').addEventListener( 'dragover', function(e) { noDefaultStopBubble(e); } );
+
+document.getElementById('file').addEventListener( 'change', function(e){ document.getElementById('drop-text').innerText = e.target.value.split('\\').pop().split('/').pop() } )
 document.addEventListener( 'drop', captureFile );
 
 document.getElementById('drop-text').addEventListener( 'dragenter', clearArea );
