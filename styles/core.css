@@ -51,6 +51,10 @@ nav li {
 	font-size: 1.1em;
 }
 
+#search input::placeholder {
+	color: #444;
+}
+
 nav img {
 	height: auto;
 	width: auto;
@@ -175,6 +179,12 @@ nav li:nth-child(n+2) a:hover{
 .tooltip:hover + .tooltiptext {
     visibility: visible;
 	opacity: 1;
+}
+
+.header {
+	font-size: 2em;
+	text-align: center;
+	color: #fff;
 }
 
 ::selection {

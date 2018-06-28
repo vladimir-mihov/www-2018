@@ -3,7 +3,7 @@
 	require_once('database.php');
 
 	$db = new database( 'images', 'root', '' );
-	$result = $db->query( 'SELECT * FROM images' );
+	$images = $db->query( 'SELECT name FROM images' )->fetchAll( PDO::FETCH_ASSOC );
 ?>
 
 <!DOCTYPE html>
@@ -18,9 +18,12 @@
 	<body>
 		<?php require_once('nav.php'); ?>
 		<main class='images'>
-		<?php while( $row = $result->fetch(PDO::FETCH_ASSOC) ): ?>
-			<a href='i/<?= $row['name'] ?>'><img src='uploads/<?= $row['name'] ?>' class='image'/></a>
-		<?php endwhile; ?>
+		<?php if( empty($images) ): ?>
+			<p class='header'>No images found</p>
+		<?php endif; ?>
+		<?php foreach( $images as $image ): ?>
+			<a href='i/<?= $image['name'] ?>'><img src='uploads/<?= $image['name'] ?>' class='image'/></a>
+		<?php endforeach; ?>
 		</main>
 	</body>
 </html>

@@ -17,13 +17,6 @@
 		<link href='styles/core.css' rel='stylesheet'>
 		<link href='styles/index.css' rel='stylesheet'>
 		<title>Imgur copy</title>
-		<style>
-			.header {
-				font-size: 2em;
-				text-align: center;
-				color: #fff;
-			}
-		</style>
 	</head>
 	<body>
 		<?php require_once('nav.php'); ?>
@@ -31,7 +24,7 @@
 			<?php if( count($myImages) ): ?>
 			<p class='header'><?= $username ?>'s images</p>
 			<?php else: ?>
-			<p class='header'>No images found.</p>
+			<p class='header'>No images found</p>
 			<?php endif; ?>
 			<?php foreach( $myImages as $image ): ?>
 			<a href='i/<?= $image['name'] ?>'><img src='uploads/<?= $image['name'] ?>' class='image'/></a>

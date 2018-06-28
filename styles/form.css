@@ -18,7 +18,7 @@
 	color: #dadada;
 }
 
-input {
+.form input {
 	display: block;
 	width: calc(100% - 10px);
 	height: 32px;
@@ -32,11 +32,11 @@ input {
 	transition: border 0.5s;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+.form input[type=text]:focus, input[type=password]:focus {
 	border: 1px solid #3949ab;
 }
 
-input[type=submit] {
+.form input[type=submit] {
 	position: relative;
 	float: right;
 	top: 30px;

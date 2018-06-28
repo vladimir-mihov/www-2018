@@ -17,7 +17,7 @@
 	$imageOwnerID = $imageData['ownerID'];
 	$imageTags = explode( ',', $imageData['tags'] );
 
-	if( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
+	if( $_SERVER['REQUEST_METHOD'] === 'POST' && $_SESSION['uid'] ) {
 		if( $_POST['action'] === 'comment' ) {
 			$comment = $db->prepare( "INSERT INTO comments( userID, imageID, comment ) VALUES ( :uid, $imageID, :comment )");
 			$comment->bindParam( ':uid', $_SESSION['uid'] );
@@ -95,9 +95,12 @@
 			<div id='curtain'></div>
 			<?php endif; ?>
 			<section id='tags'>
-			<?php foreach( $imageTags as $tag ): ?>
-				<span class='tag'><?= $tag ?></span>
-			<?php endforeach; ?>
+				<p>Tags</p>
+				<ul>
+				<?php foreach( $imageTags as $tag ): ?>
+					<li class='tag'><?= $tag ?></li>
+				<?php endforeach; ?>
+				</ul>
 			</section>
 			<form id='commentForm' method='post' name='addComment'>
 				<input type='hidden' name='action' value='comment'>

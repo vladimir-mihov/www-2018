@@ -50,6 +50,12 @@
 	line-height: 1.2em;
 	color: #fff;
 	width: 50%;
+	transition: width 0.5s, border 0.5s;
+}
+
+#commentForm input[type=text]:focus {
+	width: 70%;
+	border-bottom: 2px solid #383838;
 }
 
 #commentForm input[type=submit] {
@@ -57,10 +63,14 @@
 	font-size: 1.3em;
 	line-height: 1.3em;
 	color: #a2a2a2;
+	padding: 10px;
+	border-radius: 10px;
+	transition: background 0.3s, color 0.3s;
 }
 
 #commentForm input[type=submit]:hover {
 	color: #45679c;
+	background-color: #202123;
 }
 
 .comments ul {
@@ -134,6 +144,16 @@
 	top: 15vh;
 	left: 10vw;
 	align-items: center;
+	text-align: center;
+}
+
+#tags p {
+	color: white;
+	font-weight: bolder;
+}
+
+#tags li {
+	border-bottom: 1px solid white;
 }
 
 .tag {
@@ -143,10 +163,8 @@
 	color: #c5d6f1;
 	margin: 10px;
 	padding: 10px 20px;
-	border-radius: 500px;
-	background: #3a3b3e;
+	border-radius: 15px 15px 0 0;
 	cursor: pointer;
-	text-align: center;
 	transition: background 0.3s, color 0.3s;
 }
 

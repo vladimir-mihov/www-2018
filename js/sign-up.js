@@ -92,7 +92,7 @@ function validatePasswords() {
 }
 
 function submit(e) {
-	if( document.getElementsByClassName('invalid').length > 0 || Array.from(document.getElementsByTagName('input')).some(function(val) { return val.value.length == 0; }) ) {
+	if( document.getElementsByClassName('invalid').length > 0 || Array.from(document.querySelectorAll('#form > input')).some(function(val) { return val.value.length == 0; }) ) {
 		e.preventDefault();
 		var oldColor = '#5c69ff';
 		var submitButton = document.getElementById('submit');

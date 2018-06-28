@@ -40,9 +40,12 @@
     <body>
         <?php require_once('nav.php'); ?>
         <main class='images'>
-            <?php foreach( $foundImages as $image ): ?>
-                <a href='//<?= $srvr ?>/i/<?= $image ?>'><img src='//<?= $srvr ?>/uploads/<?= $image ?>' class='image'/></a>
-            <?php endforeach; ?>
+		<?php if( empty($foundImages) ): ?>
+			<p class='header'>No images found</p>
+		<?php endif; ?>
+        <?php foreach( $foundImages as $image ): ?>
+            <a href='//<?= $srvr ?>/i/<?= $image ?>'><img src='//<?= $srvr ?>/uploads/<?= $image ?>' class='image'/></a>
+        <?php endforeach; ?>
         </main>
     </body>
 </html>
