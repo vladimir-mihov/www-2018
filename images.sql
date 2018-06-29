@@ -63,13 +63,6 @@ CREATE TABLE `images` (
 --       `users` -> `userID`
 --
 
---
--- Dumping data for table `images`
---
-
-INSERT INTO `images` (`imageID`, `name`, `ownerID`, `tags`) VALUES
-(14, 'grief-and-loss.jpg', 5, 'cute dogs,not fake');
-
 -- --------------------------------------------------------
 
 --
@@ -92,8 +85,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userID`, `uname`, `pwd`, `email`, `privilege`) VALUES
-(5, 'adminko1', '$2y$10$kXHs4lVJQkyaERkJr3.Z4uG8kluzZey/5/RUh3ciZoxa.y4taUUKq', 'bg@abv.kols', 1);
+INSERT INTO `users` (`uname`, `pwd`, `email`, `privilege`) VALUES
+('adminko1', '$2y$10$kXHs4lVJQkyaERkJr3.Z4uG8kluzZey/5/RUh3ciZoxa.y4taUUKq', 'bg@abv.kols', 1);
 
 -- --------------------------------------------------------
 
@@ -114,13 +107,6 @@ CREATE TABLE `votes` (
 --   `userID`
 --       `users` -> `userID`
 --
-
---
--- Dumping data for table `votes`
---
-
-INSERT INTO `votes` (`imageID`, `userID`, `vote`) VALUES
-(14, 5, 1);
 
 --
 -- Indexes for dumped tables
