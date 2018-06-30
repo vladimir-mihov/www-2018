@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jun 27, 2018 at 11:41 PM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- Host: 127.0.0.1
+-- Generation Time: Jun 30, 2018 at 03:10 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -36,14 +36,6 @@ CREATE TABLE `comments` (
   `comment` varchar(180) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- RELATIONSHIPS FOR TABLE `comments`:
---   `imageID`
---       `images` -> `imageID`
---   `userID`
---       `users` -> `userID`
---
-
 -- --------------------------------------------------------
 
 --
@@ -56,12 +48,6 @@ CREATE TABLE `images` (
   `ownerID` int(10) UNSIGNED NOT NULL,
   `tags` varchar(512) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- RELATIONSHIPS FOR TABLE `images`:
---   `ownerID`
---       `users` -> `userID`
---
 
 -- --------------------------------------------------------
 
@@ -78,15 +64,11 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- RELATIONSHIPS FOR TABLE `users`:
---
-
---
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`uname`, `pwd`, `email`, `privilege`) VALUES
-('adminko1', '$2y$10$kXHs4lVJQkyaERkJr3.Z4uG8kluzZey/5/RUh3ciZoxa.y4taUUKq', 'bg@abv.kols', 1);
+INSERT INTO `users` (`userID`, `uname`, `pwd`, `email`, `privilege`) VALUES
+('adminko1', '$2y$10$ljvf0YUJhICvr57JmsTFx.kjdIdXfG1yM85Yjh8n83BtrUCpon4AW', 'abv@kols.bg', 1);
 
 -- --------------------------------------------------------
 
@@ -99,14 +81,6 @@ CREATE TABLE `votes` (
   `userID` int(10) UNSIGNED NOT NULL,
   `vote` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- RELATIONSHIPS FOR TABLE `votes`:
---   `imageID`
---       `images` -> `imageID`
---   `userID`
---       `users` -> `userID`
---
 
 --
 -- Indexes for dumped tables

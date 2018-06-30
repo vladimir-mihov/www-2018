@@ -94,6 +94,12 @@
 			</form>
 			<div id='curtain'></div>
 			<?php endif; ?>
+			<form id='commentForm' method='post' name='addComment'>
+				<input type='hidden' name='action' value='comment'>
+				<input type='text' name='comment' autocomplete='off'>
+				<input type='submit' name='submitComment' value='COMMENT'>
+			</form>
+			<?php endif; ?>
 			<section id='tags'>
 				<p>Tags</p>
 				<ul>
@@ -102,12 +108,6 @@
 				<?php endforeach; ?>
 				</ul>
 			</section>
-			<form id='commentForm' method='post' name='addComment'>
-				<input type='hidden' name='action' value='comment'>
-				<input type='text' name='comment' autocomplete='off'>
-				<input type='submit' name='submitComment' value='COMMENT'>
-			</form>
-			<?php endif; ?>
 			<section class='comments'>
 				<ul>
 					<?php while($row = $imageComments->fetch(PDO::FETCH_ASSOC)): ?>
