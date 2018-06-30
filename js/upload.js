@@ -34,7 +34,7 @@ function uploadFile(e) {
 	xhr.onreadystatechange = function() {
 		if( this.readyState == 4 ) {
 			if( this.status == 200 ) {
-				window.location.replace( 'http://localhost/i/' + xhr.response );
+				window.location.replace( window.location.origin + '/i/' + xhr.response );
 			} else {
 				console.log( xhr.response );
 			}
