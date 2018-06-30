@@ -45,7 +45,7 @@
 			if( $imageOwnerID == $_SESSION['uid'] || $_SESSION['privilege'] ) {
 				$removeImage = $db->query( "DELETE FROM images WHERE imageID=$imageID" );
 				unlink( 'uploads/' . $_GET['image'] );
-				header( "Location: //$srvr/my-images");
+				header( "Location: //$srvr");
 			}
 		}
 	}
